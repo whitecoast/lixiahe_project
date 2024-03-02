@@ -2,7 +2,7 @@
   <div id="app">
     <div class="BgMap">
       <BgMap v-if="!showUnity" />
-      <UnityMap v-if="showUnity" />
+<!--      <UnityMap v-if="showUnity" />-->
     </div>
 
     <div class="HeadView">
@@ -21,6 +21,7 @@
       <MonitorRightView v-if="mood[0]" />
       <ForecastRightView v-if="mood[1]" />
       <ProlusionRightView v-if="mood[2]" />
+      <PlanningMeasureRightView v-if="mood[3]" />
     </div>
 
     <div class="TaskDataPlane" v-if="showTaskPlane">
@@ -43,7 +44,7 @@
 <script>
 
 import BgMap from "./components/MainView/GisMap.vue"
-import UnityMap from "./components/MainView/UnityMap.vue"
+// import UnityMap from "./components/MainView/UnityMap.vue"
 
 import HeadView from "./components/HeadView.vue"
 import MonitorLeftView from "./components/MonitorView/LeftView.vue"
@@ -62,12 +63,14 @@ import ToolKit from './components/MainView/ToolKit.vue'
 import ChangMapPlane from './components/MainView/ChangMapPlane.vue'
 
 import TimeSelecter from './components/MainView/TimeSelecter.vue'
+import PlanningMeasureRightView from "@/components/planningMeasure/RightView.vue";
 
 export default {
   name: "App",
   components: {
+    PlanningMeasureRightView,
     BgMap,HeadView,MonitorLeftView,MonitorRightView,
-    ForecastLeftView,ForecastRightView,TaskPlane,ProlusionLeftView,ProlusionRightView,UnityMap,ToolKit,ChangMapPlane,
+    ForecastLeftView,ForecastRightView,TaskPlane,ProlusionLeftView,ProlusionRightView,ToolKit,ChangMapPlane,
     TimeSelecter
   },
   data() {
@@ -123,16 +126,16 @@ export default {
 <style>
 body {
   overflow: hidden;
-  box-sizing: border-box;
   margin: 0;
 }
 
 #app {
-  width: 100vw;
-  height: 100vh;
+  width: 1080px;
+  height: 762px;
   background-color: transparent;
   overflow: hidden;
 }
+
 
 .BgMap {
   position: absolute;
@@ -233,4 +236,6 @@ body {
   width: 50%;
   height: 7%;
 }
+
+
 </style>
